@@ -9,8 +9,8 @@ summary: LoopBack 4 Todo Application Tutorial - Create app scaffolding
 
 ### Create your app scaffolding
 
-The LoopBack 4 CLI toolkit comes with templates that allow you to generate whole
-applications, as well as artifacts (ex. controllers, models, repositories) for
+The LoopBack 4 CLI toolkit comes with templates that generate whole
+applications, as well as artifacts (for example, controllers, models, and repositories) for
 existing applications.
 
 To generate your application using the toolkit, run the `lb4 app` command and
@@ -32,14 +32,12 @@ $ lb4 app
  Application todo-list was created in todo-list.
 ```
 
-For this tutorial, when prompted with the options for selecting things like
-whether or not to enable certain project features (loopback's build, tslint,
-mocha, etc.), leave them all enabled.
+For this tutorial, when prompted with the options for enabling certain project features (loopback's build, tslint, mocha, etc.), leave them all enabled.
 
 ### Structure
 
 After your application is generated, you will have a folder structure similar to
-this:
+the following:
 
 ```text
 src/
@@ -75,7 +73,7 @@ tslint.json
 | File                                          | Purpose                                                                                                                                                                                                                                                        |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | index.ts                                      | Allows importing contents of the `src` folder (for use elsewhere)                                                                                                                                                                                              |
-| index.js                                      | Top-level wireup for execution of the application.                                                                                                                                                                                                             |
+| index.js                                      | Top-level file connecting components of the application.                                                                                                                                                                                                             |
 | package.json                                  | Your application's package manifest. See [package.json](https://docs.npmjs.com/files/package.json) for details.                                                                                                                                                |
 | tsconfig.json                                 | The TypeScript project configuration. See [tsconfig.json](http://www.typescriptlang.org/docs/handbook/tsconfig-json.html) for details.                                                                                                                         |
 | tslint.json                                   | [TSLint configuration](https://palantir.github.io/tslint/usage/tslint-json/)                                                                                                                                                                                   |
@@ -96,4 +94,4 @@ tslint.json
 
 ### Navigation
 
-Next step: [Adding the legacy juggler](todo-tutorial-juggler.md)
+Next step: [Adding the juggler bridge](todo-tutorial-juggler.md)

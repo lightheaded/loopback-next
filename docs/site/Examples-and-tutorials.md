@@ -1,6 +1,6 @@
 ---
 lang: en
-title: Examples and tutorials
+title: Tutorials and Examples
 keywords: LoopBack 4.0
 sidebar: lb4_sidebar
 permalink: /doc/en/lb4/Examples-and-tutorials.html
@@ -23,7 +23,7 @@ LoopBack 4 comes with the following example projects:
 - **[rpc-server](https://github.com/strongloop/loopback-next/tree/master/examples/rpc-server)**:
   An example showing how to implement a made-up RPC protocol.
 
-You can download any of the example projects usig our CLI tool `lb4`:
+You can download any of the example projects using our CLI tool `lb4`:
 
 ```sh
 $ lb4 example
