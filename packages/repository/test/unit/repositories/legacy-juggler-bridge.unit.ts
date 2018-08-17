@@ -187,8 +187,10 @@ describe('DefaultCrudRepository', () => {
   it('implements Repository.delete()', async () => {
     const repo = new DefaultCrudRepository(Note, ds);
     const note = await repo.create({title: 't3', content: 'c3'});
-    const result = await repo.delete(note);
-    expect(result).to.eql(true);
+    const deleteResult = await repo.delete(note);
+    expect(deleteResult).to.eql(true);
+    const findResult = await repo.find({where: {title: 't3'}});
+    expect(findResult.length).to.eql(0);
   });
 
   it('implements Repository.deleteById()', async () => {
@@ -196,14 +198,29 @@ describe('DefaultCrudRepository', () => {
     const note = await repo.create({title: 't3', content: 'c3'});
     const result = await repo.deleteById(note.id);
     expect(result).to.eql(true);
+    await expect(repo.findById(note.id)).to.be.rejectedWith(
+      `no ${repo.modelClass.name} found with id "${note.id}"`,
+    );
   });
 
   it('implements Repository.deleteAll()', async () => {
     const repo = new DefaultCrudRepository(Note, ds);
     await repo.create({title: 't3', content: 'c3'});
     await repo.create({title: 't4', content: 'c4'});
-    const result = await repo.deleteAll({title: 't3'});
-    expect(result).to.eql(1);
+    const deleteCount = await repo.deleteAll();
+    expect(deleteCount).to.eql(2);
+    const count = await repo.count();
+    expect(count).to.eql(0);
+  });
+
+  it('implements Repository.deleteAll(<where>)', async () => {
+    const repo = new DefaultCrudRepository(Note, ds);
+    await repo.create({title: 't3', content: 'c3'});
+    await repo.create({title: 't4', content: 'c4'});
+    const deleteCount = await repo.deleteAll({title: 't3'});
+    expect(deleteCount).to.eql(1);
+    const result = await repo.findOne({where: {title: 't3'}});
+    expect(result).to.eql(null);
   });
 
   it('implements Repository.updateById()', async () => {

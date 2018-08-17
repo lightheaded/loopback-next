@@ -145,8 +145,10 @@ describe('CrudRepositoryImpl', () => {
   it('delete all entities', async () => {
     await repo.create({id: 1, email: 'john@example.com'});
     await repo.create({id: 2, email: 'mary@example.com'});
-    const count = await repo.deleteAll();
-    expect(count).to.be.eql(2);
+    const deleteCount = await repo.deleteAll();
+    expect(deleteCount).to.be.eql(2);
+    const count = await repo.count();
+    expect(count).to.be.eql(0);
   });
 
   it('count all entities', async () => {
