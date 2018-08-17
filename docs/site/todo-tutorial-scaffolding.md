@@ -80,7 +80,7 @@ tslint.json
 | tslint.build.json                             | [TSLint configuration (build only)](https://palantir.github.io/tslint/usage/tslint-json/)                                                                                                                                                                      |
 | README.md                                     | The Markdown-based README generated for your application.                                                                                                                                                                                                      |
 | LICENSE                                       | A copy of the MIT license. If you do not wish to use this license, please delete this file.                                                                                                                                                                    |
-| src/application.ts                            | The application class, which extends [`RestApplication`](http://apidocs.strongloop.com/@loopback%2fdocs/rest.html#RestApplication) by default. This is the root of your application, and is where your application will be configured.                         |
+| src/application.ts                            | The application class, which extends [`RestApplication`](http://apidocs.strongloop.com/@loopback%2fdocs/rest.html#RestApplication) by default. This is the root of your application, and is where your application will be configured. It also extends [`RepositoryMixin`](https://apidocs.strongloop.com/@loopback%2fdocs/repository.html#RepositoryMixin) which defines the datasource.                      |
 | src/index.ts                                  | The starting point of your microservice. This file creates an instance of your application, runs the booter, then attempts to start the [`RestServer`](http://apidocs.strongloop.com/@loopback%2fdocs/rest.html#RestServer) instance bound to the application. |
 | src/sequence.ts                               | An extension of the [Sequence](Sequence.md) class used to define the set of actions to take during a REST request/response.                                                                                                                                    |
 | src/controllers/README.md                     | Provides information about the controller directory, how to generate new controllers, and where to find more information.                                                                                                                                      |
@@ -94,4 +94,4 @@ tslint.json
 
 ### Navigation
 
-Next step: [Adding the juggler bridge](todo-tutorial-juggler.md)
+Next step: [Add the Todo Model](todo-tutorial-model.md)
