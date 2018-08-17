@@ -9,7 +9,7 @@ import {
   RelationType,
   RELATIONS_KEY,
 } from '../decorators/relation.decorator';
-import {Entity, isModelResolver} from '../model';
+import {Entity, isTypeResolver} from '../model';
 import {
   HasManyRepository,
   DefaultHasManyEntityCrudRepository,
@@ -64,10 +64,16 @@ export function createHasManyRepositoryFactory<
   };
 }
 
+/**
+ * Resolves given hasMany metadata if target is specified to be a resolver.
+ * Mainly used to infer what the `keyTo` property should be from the target's
+ * belongsTo metadata
+ * @param relationMeta hasMany metadata to resolve
+ */
 export function resolveHasManyMetadata(relationMeta: HasManyDefinition) {
   if (
     relationMeta.target &&
-    isModelResolver(relationMeta.target) &&
+    isTypeResolver(relationMeta.target) &&
     !relationMeta.keyTo
   ) {
     const resolvedModel = relationMeta.target();
